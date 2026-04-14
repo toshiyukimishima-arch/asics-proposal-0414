@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firework × ASICS 提案資料 2026年4月</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sans',Meiryo,sans-serif;background:#ccc;color:#1a1a1a}
+.nav{position:fixed;top:0;left:0;right:0;height:40px;background:#fff;border-bottom:1px solid #ddd;display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;gap:12px}
+.nav-logo{font-size:14px;font-weight:800;white-space:nowrap}
+.nav-logo span{color:#e85d04}
+.pills{display:flex;gap:3px;flex-wrap:wrap}
+.pill{font-size:10px;padding:2px 8px;border-radius:99px;background:#f0efe8;color:#555;cursor:pointer;border:none}
+.pill:hover{background:#1a1a1a;color:#fff}
+.nav-r{font-size:10px;color:#999;white-space:nowrap}
+.deck{margin-top:40px;padding:20px 0 48px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.slide{width:960px;height:540px;background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.18);position:relative;flex-shrink:0}
+.cover{background:#1a1a1a;color:#fff;width:100%;height:100%;display:grid;grid-template-rows:auto 1fr auto;padding:40px 56px 32px}
+.c-body{display:flex;flex-direction:column;justify-content:center;gap:12px}
+.c-tag{font-size:11px;letter-spacing:.14em;color:#e85d04;font-weight:600}
+.c-title{font-size:30px;font-weight:800;line-height:1.25;letter-spacing:-.5px}
+.c-sub{font-size:13px;color:#999;line-height:1.7}
+.si{padding:28px 40px 24px;height:100%;display:flex;flex-direction:column}
+.sl-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sl-num{font-size:10px;color:#bbb;letter-spacing:.08em}
+.sl-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:99px;letter-spacing:.03em}
+.tag-blue{background:#E6F1FB;color:#0C447C}
+.tag-teal{background:#E1F5EE;color:#085041}
+.tag-amber{background:#FAEEDA;color:#633806}
+.tag-coral{background:#FAECE7;color:#712B13}
+.tag-purple{background:#EEEDFE;color:#3C3489}
+.tag-gray{background:#F1EFE8;color:#5F5E5A}
+.tag-dark{background:#1a1a1a;color:#e85d04}
+.sl-title{font-size:20px;font-weight:800;line-height:1.2;letter-spacing:-.3px;margin-bottom:5px}
+.sl-sub{font-size:11px;color:#777;line-height:1.6;margin-bottom:12px}
+.body{flex:1;min-height:0;display:flex;flex-direction:column}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.card{background:#f8f7f3;border-radius:8px;padding:13px 15px}
+.card-label{font-size:9px;color:#aaa;font-weight:700;letter-spacing:.06em;margin-bottom:4px;text-transform:uppercase}
+.card-title{font-size:12px;font-weight:700;color:#1a1a1a;margin-bottom:4px;line-height:1.3}
+.card-desc{font-size:11px;color:#666;line-height:1.55}
+.hl{border-radius:8px;padding:11px 16px}
+.hl-teal{background:#E1F5EE}
+.hl-teal .ht{font-size:11px;font-weight:700;color:#085041;margin-bottom:3px}
+.hl-teal .hd{font-size:11px;color:#0F6E56;line-height:1.55}
+.hl-coral{background:#FAECE7}
+.hl-coral .ht{font-size:11px;font-weight:700;color:#712B13;margin-bottom:3px}
+.hl-coral .hd{font-size:11px;color:#993C1D;line-height:1.55}
+.step{display:flex;gap:10px;align-items:flex-start}
+.snum{min-width:26px;height:26px;border-radius:50%;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.sn-t{background:#E1F5EE;color:#085041}
+.sn-p{background:#EEEDFE;color:#3C3489}
+.st{font-size:12px;font-weight:700;color:#1a1a1a;margin-bottom:3px;line-height:1.3}
+.sd{font-size:11px;color:#666;line-height:1.55}
+.diff-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #f0ede6;font-size:11px;align-items:flex-start}
+.diff-row:last-child{border-bottom:none;padding-bottom:0}
+.di{flex:2;color:#888;line-height:1.55}
+.da{color:#ccc;flex-shrink:0;font-size:16px;padding-top:1px}
+.df{flex:3;color:#1a1a1a;font-weight:600;line-height:1.55}
+.vcard{border:1px solid #e8e6e0;border-radius:8px;padding:11px 14px;flex:1}
+.vh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:5px}
+.vt{font-size:12px;font-weight:700;color:#1a1a1a}
+.badge{font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;flex-shrink:0;white-space:nowrap}
+.bg-b{background:#E6F1FB;color:#0C447C}
+.bg-t{background:#E1F5EE;color:#085041}
+.bg-a{background:#FAEEDA;color:#633806}
+.vd{font-size:11px;color:#666;line-height:1.55;margin-bottom:6px}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.chip{font-size:10px;padding:2px 8px;border-radius:99px;background:#f5f4f0;color:#666}
+.vmeta{display:flex;gap:16px;font-size:10px;border-top:1px solid #f0ede6;padding-top:7px}
+.mk{color:#aaa;margin-right:2px}
+.mv{color:#1a1a1a;font-weight:700}
+.strat-box{border:1.5px solid #534AB7;border-radius:8px;padding:16px 18px;background:#EEEDFE08;margin-bottom:10px}
+.strat-label{font-size:10px;font-weight:700;letter-spacing:.07em;color:#534AB7;margin-bottom:6px}
+.strat-title{font-size:14px;font-weight:800;color:#26215C;margin-bottom:12px;line-height:1.3}
+.future-card{border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.future-tag{font-size:10px;font-weight:700;letter-spacing:.06em}
+.future-title{font-size:15px;font-weight:800;color:#1a1a1a;line-height:1.3}
+.future-desc{font-size:11px;color:#555;line-height:1.65;flex:1}
+.future-chips-label{font-size:10px;font-weight:700;margin-bottom:5px}
+.chip-sm{font-size:10px;padding:3px 9px;border-radius:99px}
+.p-title{font-size:13px;font-weight:700;color:#1a1a1a;line-height:1.3}
+.p-desc{font-size:11px;color:#666;line-height:1.55;flex:1}
+.p-vt{font-size:10px;font-weight:700}
+.p-vd{font-size:10px;color:#666;line-height:1.45}
+.pn{position:absolute;bottom:12px;right:16px;font-size:9px;color:#ccc;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">fire<span>work</span></div>
+  <div class="pills">
+    <button class="pill" onclick="scrollTo({top:0,behavior:'smooth'})">表紙</button>
+    <button class="pill" onclick="document.getElementById('s01').scrollIntoView({behavior:'smooth'})">01</button>
+    <button class="pill" onclick="document.getElementById('s02').scrollIntoView({behavior:'smooth'})">02</button>
+    <button class="pill" onclick="document.getElementById('s03').scrollIntoView({behavior:'smooth'})">03</button>
+    <button class="pill" onclick="document.getElementById('s04').scrollIntoView({behavior:'smooth'})">04</button>
+    <button class="pill" onclick="document.getElementById('s05').scrollIntoView({behavior:'smooth'})">05</button>
+    <button class="pill" onclick="document.getElementById('sdemo').scrollIntoView({behavior:'smooth'})">DEMO</button>
+    <button class="pill" onclick="document.getElementById('s06').scrollIntoView({behavior:'smooth'})">06</button>
+    <button class="pill" onclick="document.getElementById('s06b').scrollIntoView({behavior:'smooth'})">06b</button>
+    <button class="pill" onclick="document.getElementById('s07').scrollIntoView({behavior:'smooth'})">07</button>
+    <button class="pill" onclick="document.getElementById('s08').scrollIntoView({behavior:'smooth'})">08</button>
+    <button class="pill" onclick="document.getElementById('s09').scrollIntoView({behavior:'smooth'})">END</button>
+  </div>
+  <div class="nav-r">CONFIDENTIAL — 2026.04</div>
+</nav>
+<div class="deck">
+
+<!-- 表紙 -->
+<div class="slide">
+  <div class="cover">
+    <div style="font-size:12px;color:#aaa;letter-spacing:.04em">アシックスジャパン株式会社　御中</div>
+    <div class="c-body">
+      <div class="c-tag">PROPOSAL — 2026年4月</div>
+      <div class="c-title">ASICS.COMダイナミックコンテンツ戦略を<br>支えるグローバルプラットフォーム</div>
+      <div class="c-sub">AIデジタル接客 × 動画コンテンツ活用 × 全接点統合</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;padding-top:20px;border-top:1px solid #2e2e2e">
+      <div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:.04em">Firework Japan</div>
+      <div style="display:flex;gap:40px">
+        <div><div style="font-size:10px;color:#666;margin-bottom:3px">Country Manager</div><div style="font-size:13px;color:#fff;font-weight:500">Kazuki Tajima</div></div>
+        <div><div style="font-size:10px;color:#666;margin-bottom:3px">Sales Director</div><div style="font-size:13px;color:#fff;font-weight:500">Toshiyuki Mishima</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">表紙</div>
+</div>
+
+<!-- 01 提案全体像 -->
+<div class="slide" id="s01">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">01</span><span class="sl-tag tag-dark">提案の全体像</span></div>
+    <div class="sl-title">貴社戦略を支援するFireworkソリューション</div>
+    <div class="sl-sub">&nbsp;</div>
+    <div class="body" style="justify-content:space-between">
+      <div style="border:2px solid #534AB7;border-radius:8px;padding:12px 18px;background:#EEEDFE10;margin-bottom:10px">
+        <div style="font-size:9px;font-weight:700;color:#534AB7;letter-spacing:.08em;margin-bottom:5px">ASICS.COM ダイナミックコンテンツ戦略（貴社が推進する戦略）</div>
+        <div style="font-size:14px;font-weight:800;color:#26215C">「どのチャネルでも、どのお客様にも、アシックスとして一貫した体験を届ける」</div>
+      </div>
+      <div style="display:flex;align-items:stretch;gap:10px;flex:1">
+        <div style="background:#1a1a1a;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:148px;gap:8px">
+          <div style="font-size:20px;font-weight:800;color:#fff;letter-spacing:-.5px">Firework</div>
+          <div style="font-size:10px;color:#e85d04;font-weight:700;text-align:center;line-height:1.4">グローバル<br>プラットフォーム</div>
+          <div style="font-size:9px;color:#888;text-align:center;line-height:1.4">AIデジタル接客<br>動画コンテンツ管理<br>インサイト分析</div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:space-around;align-items:center;padding:0 4px">
+          <div style="font-size:18px;color:#bbb">→</div>
+          <div style="font-size:18px;color:#bbb">→</div>
+          <div style="font-size:18px;color:#bbb">→</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;flex:1">
+          <div style="border:1.5px solid #378ADD;border-radius:7px;padding:10px 14px;background:#E6F1FB18;flex:1;display:flex;align-items:center;gap:12px">
+            <div style="width:10px;height:10px;border-radius:50%;background:#185FA5;flex-shrink:0"></div>
+            <div><div style="font-size:14px;font-weight:700;color:#0C447C">ASICS.COM（自社DTC）</div><div style="font-size:11px;color:#378ADD;margin-top:3px">PHASE 1 スタート — まずここから導入、既存動画でゼロコスト始動</div></div>
+          </div>
+          <div style="border:1.5px solid #1D9E75;border-radius:7px;padding:10px 14px;background:#E1F5EE18;flex:1;display:flex;align-items:center;gap:12px">
+            <div style="width:10px;height:10px;border-radius:50%;background:#0F6E56;flex-shrink:0"></div>
+            <div><div style="font-size:14px;font-weight:700;color:#085041">海外DTC</div><div style="font-size:11px;color:#1D9E75;margin-top:3px">PHASE 2 拡張期 — グローバルへシンジケーション展開</div></div>
+          </div>
+          <div style="border:1.5px solid #BA7517;border-radius:7px;padding:10px 14px;background:#FAEEDA18;flex:1;display:flex;align-items:center;gap:12px">
+            <div style="width:10px;height:10px;border-radius:50%;background:#633806;flex-shrink:0"></div>
+            <div><div style="font-size:14px;font-weight:700;color:#633806">国内リテーラー（アルペン等）</div><div style="font-size:11px;color:#BA7517;margin-top:3px">PHASE 2 拡張期 — リテーラーへコンテンツ配信</div></div>
+          </div>
+        </div>
+        <div style="width:1px;background:#f0ede6;margin:0 4px"></div>
+        <div style="border:1.5px solid #534AB7;border-radius:7px;padding:12px 16px;background:#EEEDFE18;min-width:160px;display:flex;flex-direction:column;justify-content:center;gap:7px">
+          <div style="font-size:9px;font-weight:700;color:#534AB7;letter-spacing:.06em">PHASE 3 進化期</div>
+          <div style="font-size:12px;font-weight:800;color:#26215C;line-height:1.3">パーソナライズ<br>＋ CDP統合</div>
+          <div style="height:1px;background:#dbd8f0"></div>
+          <div style="font-size:10px;color:#534AB7;line-height:1.55">会員 / 非会員で<br>異なる接客を実現</div>
+          <div style="font-size:10px;color:#534AB7;line-height:1.55">蓄積した動画・<br>インサイトをフル活用</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">01</div>
+</div>
+
+<!-- 02 戦略 -->
+<div class="slide" id="s02">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">02</span><span class="sl-tag tag-purple">ASICS.COMダイナミックコンテンツ戦略との連動</span></div>
+    <div class="sl-title">貴社が目指すデジタル顧客体験戦略</div>
+    <div class="sl-sub">貴社がASICS.COMで取り組んでいる戦略の全体像を整理します。</div>
+    <div class="body" style="justify-content:center">
+      <div class="strat-box">
+        <div class="strat-label">ASICS.COM デジタル顧客体験戦略の全体像</div>
+        <div class="strat-title">「どのチャネルでも、どのお客様にも、アシックスとして一貫した体験を届ける」</div>
+        <div class="g3">
+          <div style="background:#fff;border:1px solid #dbd8f0;border-radius:7px;padding:16px">
+            <div style="font-size:10px;font-weight:700;color:#534AB7;letter-spacing:.05em;margin-bottom:8px">取り組み 01</div>
+            <div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:6px">ダイナミックコンテンツ</div>
+            <div style="font-size:11px;color:#666;line-height:1.6">訪れた顧客の関心・行動に合わせたページ・コンテンツをダイナミックに表示する。PWA移行後から実装スタート予定。</div>
+          </div>
+          <div style="background:#fff;border:1px solid #dbd8f0;border-radius:7px;padding:16px">
+            <div style="font-size:10px;font-weight:700;color:#534AB7;letter-spacing:.05em;margin-bottom:8px">取り組み 02</div>
+            <div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:6px">全接点での情報統一</div>
+            <div style="font-size:11px;color:#666;line-height:1.6">ASICS.COM・国内リテーラー・海外DTCなど、あらゆる顧客接点でアシックスとして一貫した正確な情報を届ける。リテールとの連携を推進中。</div>
+          </div>
+          <div style="background:#fff;border:1px solid #dbd8f0;border-radius:7px;padding:16px">
+            <div style="font-size:10px;font-weight:700;color:#534AB7;letter-spacing:.05em;margin-bottom:8px">取り組み 03</div>
+            <div style="font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:6px">商品比較・理解促進</div>
+            <div style="font-size:11px;color:#666;line-height:1.6">「NIMBUSとCUMULUSの違い」など、顧客が迷わず商品を理解・比較できるコンテンツを充実させたい。競合他社はすでに実現済み。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">02</div>
+</div>
+
+<!-- 03 将来像 -->
+<div class="slide" id="s03">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">03</span><span class="sl-tag tag-purple">Fireworkが実現する将来像</span></div>
+    <div class="sl-title">Firework導入により実現できる3つの将来像</div>
+    <div class="sl-sub">貴社戦略をさらに強化するエンジンとして、Fireworkは以下の将来像を提供します。</div>
+    <div class="body">
+      <div class="g3" style="flex:1">
+        <div class="future-card" style="background:#E1F5EE20;border:1.5px solid #1D9E75">
+          <div class="future-tag" style="color:#085041">将来像 01</div>
+          <div class="future-title">AIデジタル接客による<br>比較・購買体験の実現</div>
+          <div class="future-desc">商品ページに「デジタル接客員」を設置。顧客の質問に動画×AIで答え、シリーズ横断比較・閑散期の商品理解促進・購買後押しを実現。比較コンテンツの充実と閑散期の顧客育成に直接応えます。</div>
+          <div>
+            <div class="future-chips-label" style="color:#085041">応える課題</div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap">
+              <span class="chip-sm" style="background:#E1F5EE;color:#085041">シリーズ横断比較</span>
+              <span class="chip-sm" style="background:#E1F5EE;color:#085041">閑散期の顧客育成</span>
+              <span class="chip-sm" style="background:#E1F5EE;color:#085041">動画コンテンツ拡充</span>
+            </div>
+          </div>
+        </div>
+        <div class="future-card" style="background:#EEEDFE20;border:1.5px solid #534AB7">
+          <div class="future-tag" style="color:#3C3489">将来像 02</div>
+          <div class="future-title">対話インサイトデータによる<br>戦略の好循環サイクル</div>
+          <div class="future-desc">Fireworkの対話ログから「顧客が何を考えていたか」が可視化されます。このインサイトをEC改善・マーケ施策・リテール連携・カテゴリー開発にフィードバックし、ダイナミックコンテンツ戦略をさらに精度高く推進できます。</div>
+          <div>
+            <div class="future-chips-label" style="color:#3C3489">活用できる部門</div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap">
+              <span class="chip-sm" style="background:#EEEDFE;color:#3C3489">ECサイト改善</span>
+              <span class="chip-sm" style="background:#EEEDFE;color:#3C3489">マーケティング</span>
+              <span class="chip-sm" style="background:#EEEDFE;color:#3C3489">リテール連携</span>
+              <span class="chip-sm" style="background:#EEEDFE;color:#3C3489">カテゴリー開発</span>
+            </div>
+          </div>
+        </div>
+        <div class="future-card" style="background:#E6F1FB20;border:1.5px solid #378ADD">
+          <div class="future-tag" style="color:#0C447C">将来像 03</div>
+          <div class="future-title">動画を軸にした<br>グローバルコンテンツ管理</div>
+          <div class="future-desc">Fireworkをグローバルな動画アセット管理の一元基盤として活用。承認済み素材をASICS.COM・海外DTC・国内リテーラーへ一括配信し、対話データを根拠にマーケへの制作依頼をデータドリブンで行える体制を構築します。</div>
+          <div>
+            <div class="future-chips-label" style="color:#0C447C">実現できること</div>
+            <div style="display:flex;gap:4px;flex-wrap:wrap">
+              <span class="chip-sm" style="background:#E6F1FB;color:#0C447C">アセット一元管理</span>
+              <span class="chip-sm" style="background:#E6F1FB;color:#0C447C">全接点へ一括配信</span>
+              <span class="chip-sm" style="background:#E6F1FB;color:#0C447C">制作優先順位の可視化</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">03</div>
+</div>
+
+<!-- 04 3つの課題 -->
+<div class="slide" id="s04">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">04</span><span class="sl-tag tag-gray">現状課題の整理</span></div>
+    <div class="sl-title">戦略推進における3つの課題</div>
+    <div class="sl-sub">戦略の推進において、Fireworkがお役に立てると考える課題を整理します。</div>
+    <div class="body" style="justify-content:space-between">
+      <div style="display:flex;flex-direction:column;gap:14px;flex:1;justify-content:center">
+        <div class="step">
+          <div class="snum sn-p">1</div>
+          <div><div class="st">商品比較コンテンツの不足と閑散期の売上課題</div><div class="sd">On・Hokaなど競合ブランドはサイト内での商品横断比較が可能。ASICS.COMでは現状、顧客が複数PDPを行き来して自力で比較する必要がある。また閑散期（4〜6月・11〜12月）は売上が落ち込む傾向にあり、顧客の商品理解を深めるコンテンツが求められている。</div></div>
+        </div>
+        <div style="height:1px;background:#f0ede6"></div>
+        <div class="step">
+          <div class="snum sn-p">2</div>
+          <div><div class="st">動画コンテンツのリソース・品質管理の課題</div><div class="sd">動画の統括権限がマーケティング部門に移管されており、ECサイト向けの動画制作予算・リソースが限られている。また動画活用にあたってはブランド・マーケティングの品質チェックが必要で、スピード感のある対応が難しい構造がある。</div></div>
+        </div>
+        <div style="height:1px;background:#f0ede6"></div>
+        <div class="step">
+          <div class="snum sn-p">3</div>
+          <div><div class="st">ツール導入・継続運用のハードル</div><div class="sd">パーソナライゼーションツール（KARTE）・分析ツール（Zeta）を導入しても、複雑な設定・兼任体制での運用限界・ベンダーからの活用提案不足により、フル活用に至らず停止となった経緯がある。継続できる設計とベンダーの伴走体制が必要。</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">04</div>
+</div>
+
+<!-- 05 課題1解決策 -->
+<div class="slide" id="s05">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">05</span><span class="sl-tag tag-teal">課題１への解決策</span></div>
+    <div class="sl-title">商品比較コンテンツ × 閑散期施策</div>
+    <div class="sl-sub">競合他社が実現している「サイト内横断比較」と、閑散期の顧客育成にFireworkで直接応えます。</div>
+    <div class="body" style="justify-content:space-between">
+      <div class="g2" style="flex:1">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:10px;font-weight:700;color:#bbb;letter-spacing:.05em">現状の課題</div>
+          <div class="card" style="flex:1">
+            <div class="card-label">課題 01</div>
+            <div class="card-title">シリーズ横断比較ができない</div>
+            <div class="card-desc">「NIMBUS vs CUMULUS の違いは？」に対し、顧客が複数PDPを行き来して自力で比較するしかない。On・Hokaはすでにサイト内比較機能を持っている。</div>
+          </div>
+          <div class="card" style="flex:1">
+            <div class="card-label">課題 02</div>
+            <div class="card-title">閑散期（4〜6月・11〜12月）に売上が落ちる</div>
+            <div class="card-desc">新モデルが少ないこの時期は、商品理解の促進とASICSの世界観を伝えることが重要。繰り返し訪問を促し、ブランドへの愛着と次シーズンへの購買意欲を醸成する仕組みが必要。</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:10px;font-weight:700;color:#bbb;letter-spacing:.05em">Fireworkで実現できること</div>
+          <div class="card" style="flex:1;background:#E1F5EE20;border:1px solid #9FE1CB">
+            <div class="card-label" style="color:#085041">実現 01</div>
+            <div class="card-title">AIエージェントによる複数商品の比較回答</div>
+            <div class="card-desc">AIに複数の商品情報を学習させることで、PDPに設置したAIエージェントが複数の商品を比較した回答を行う。これにより顧客はより自分に合った商品を見つけることが可能になる。</div>
+          </div>
+          <div class="card" style="flex:1;background:#E1F5EE20;border:1px solid #9FE1CB">
+            <div class="card-label" style="color:#085041">実現 02</div>
+            <div class="card-title">動画×AIで世界観を伝え、サイト回遊を促進</div>
+            <div class="card-desc">AIとの対話で商品理解を深めながら、動画でASICSの世界観・ブランドストーリーを体験できる場を提供。関連コンテンツへの誘導でサイト回遊を促し、閑散期でも「学びに来る場所」としてのサイト価値を高める。</div>
+          </div>
+        </div>
+      </div>
+      <div class="hl hl-teal" style="margin-top:10px">
+        <div class="ht">比較接客が生み出すインサイト</div>
+        <div class="hd">対話ログから「顧客がどの軸で判断しているか」が可視化され、カテゴリー開発・マーケティング訴求軸にも活用できます。</div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">05</div>
+</div>
+
+<!-- デモ中表紙 -->
+<div class="slide" id="sdemo">
+  <div style="background:#1a1a1a;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:56px">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.2em;color:#e85d04">DEMONSTRATION</div>
+    <div style="font-size:32px;font-weight:800;color:#fff;text-align:center;line-height:1.3;letter-spacing:-.5px">商品比較 AIエージェント<br>デモンストレーション</div>
+    <div style="width:40px;height:2px;background:#e85d04;border-radius:99px"></div>
+    <div style="font-size:13px;color:#888;text-align:center;line-height:1.8">複数商品の情報を学習したAIエージェントが<br>顧客の質問に対してリアルタイムで比較回答します</div>
+  </div>
+  <div class="pn">DEMO</div>
+</div>
+
+<!-- 06 動画パターン1・2 -->
+<div class="slide" id="s06">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">06</span><span class="sl-tag tag-teal">課題２への解決策</span></div>
+    <div class="sl-title">「動画リソースが足りない」を段階的に解決する3つのアプローチ</div>
+    <div class="sl-sub">予算不足・権限移管・品質チェックのボトルネックを、コストと承認リスクを管理しながらフェーズ別に解決します。</div>
+    <div class="body" style="gap:8px">
+      <div class="vcard">
+        <div class="vh"><div class="vt">パターン1 — 既存動画アセットの活用</div><span class="badge bg-b">スタートから即活用</span></div>
+        <div class="vd">マーケ保有の制作済み素材・Instagram縦型動画・公式YouTubeをそのまま取り込み。<strong>承認フロー不要・制作コストゼロ</strong>で始動できます。</div>
+        <div class="chips"><span class="chip">Instagram縦型動画</span><span class="chip">マーケ制作済みPV</span><span class="chip">コラボ特集素材</span><span class="chip">公式YouTubeクリップ</span></div>
+        <div class="vmeta"><div><span class="mk">制作コスト</span><span class="mv">¥0</span></div><div><span class="mk">承認リスク</span><span class="mv">なし（既承認）</span></div><div><span class="mk">準備期間</span><span class="mv">即日〜数日</span></div></div>
+      </div>
+      <div class="vcard">
+        <div class="vh"><div class="vt">パターン2-A — 既存ライブ・動画素材からの切り抜き生成</div><span class="badge bg-t">拡張期／低コスト</span></div>
+        <div class="vd">過去のマラソン協賛映像・製品発表ライブ・イベント映像など既存の動画素材からAIが自動でシーンを検出し、縦型ショート動画を生成します。追加撮影不要で複数のコンテンツ資産を低コストで派生させることができます。</div>
+        <div class="chips"><span class="chip">既存ライブ配信アーカイブ</span><span class="chip">マラソン協賛映像</span><span class="chip">製品発表アーカイブ</span></div>
+        <div class="vmeta"><div><span class="mk">制作コスト</span><span class="mv">低（切り抜きのみ）</span></div><div><span class="mk">承認確認</span><span class="mv">必要</span></div><div><span class="mk">派生本数</span><span class="mv">1素材 → 10〜30本</span></div></div>
+      </div>
+      <div class="vcard">
+        <div class="vh"><div class="vt">パターン2-B — ライブ配信の企画・制作からの動画生成</div><span class="badge bg-t">拡張期／本格展開</span></div>
+        <div class="vd">Fireworkが企画・配信サポートを含めてライブ配信を実施。配信映像からAIが自動で縦型ショート動画を切り抜き生成します。新規ライブ配信の制作費用が別途発生しますが、ライブ配信自体の活用と動画アセット蓄積を同時に実現できます。</div>
+        <div class="chips"><span class="chip">新規ライブ配信企画</span><span class="chip">アスリートインタビュー</span><span class="chip">新製品発表ライブ</span><span class="chip">新製品紹介ライブ</span></div>
+        <div class="vmeta"><div><span class="mk">制作コスト</span><span class="mv">中〜高（配信制作費あり）</span></div><div><span class="mk">Fireworkサポート</span><span class="mv">企画〜配信〜切り抜き</span></div><div><span class="mk">派生本数</span><span class="mv">1配信 → 10〜30本</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">06</div>
+</div>
+
+<!-- 06b パターン3 -->
+<div class="slide" id="s06b">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">06b</span><span class="sl-tag tag-teal">課題２への解決策（続き）</span></div>
+    <div class="sl-title">パターン3 — AIによる大量動画生成</div>
+    <div class="sl-sub">品質チェック体制が整った進化期から本格導入。商品スペック・画像からAIが自動生成し、大量のSKU対応とグローバル展開を低コストで実現します。</div>
+    <div class="body" style="justify-content:space-between">
+      <div class="vcard" style="flex:unset">
+        <div class="vh"><div class="vt">パターン3 — AIによる大量動画生成</div><span class="badge bg-a">進化期で量産</span></div>
+        <div class="vd">商品スペック・画像・テキスト情報からAIが自動で縦型動画を生成します。シリーズ横断比較・閑散期の商品教育コンテンツ・グローバル多言語版など、大量のSKU対応が必要な場面で最大の効果を発揮します。<br><span style="font-size:10px;color:#bbb">※ブランド・マーケティングの品質チェック体制が整ったフェーズ3から本格導入。承認フローの事前整備が前提となります。</span></div>
+        <div class="chips"><span class="chip">シリーズ比較動画</span><span class="chip">SKU別スペック解説</span><span class="chip">閑散期教育コンテンツ</span><span class="chip">グローバル多言語版</span></div>
+        <div class="vmeta"><div><span class="mk">制作コスト</span><span class="mv">低</span></div><div><span class="mk">承認体制</span><span class="mv">要事前整備</span></div><div><span class="mk">スケール</span><span class="mv">100本〜</span></div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;flex:1;margin-top:10px">
+        <div style="background:#f8f7f3;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:10px;font-weight:700;color:#633806">導入ステップ 01</div>
+          <div style="font-size:12px;font-weight:700;color:#1a1a1a;line-height:1.3">承認フローの整備</div>
+          <div style="font-size:11px;color:#666;line-height:1.55">ブランド・マーケティングの品質チェック体制を事前に設計。AI生成動画のレギュレーションを定める。</div>
+        </div>
+        <div style="background:#f8f7f3;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:10px;font-weight:700;color:#633806">導入ステップ 02</div>
+          <div style="font-size:12px;font-weight:700;color:#1a1a1a;line-height:1.3">優先SKUでパイロット</div>
+          <div style="font-size:11px;color:#666;line-height:1.55">対話ログで判明した動画ニーズの高いSKUから少量生成し、品質・効果を検証する。</div>
+        </div>
+        <div style="background:#f8f7f3;border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:10px;font-weight:700;color:#633806">導入ステップ 03</div>
+          <div style="font-size:12px;font-weight:700;color:#1a1a1a;line-height:1.3">グローバル量産へ</div>
+          <div style="font-size:11px;color:#666;line-height:1.55">検証後に全SKU・多言語版へ展開。サムスン等グローバル企業での導入実績をもとに設計する。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">06b</div>
+</div>
+
+<!-- 07 課題3 -->
+<div class="slide" id="s07">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">07</span><span class="sl-tag tag-coral">課題３への解決策</span></div>
+    <div class="sl-title">「導入しても続かない」を防ぐ設計と伴走体制</div>
+    <div class="sl-sub">過去にツールが継続できなかった構造的な原因に、Fireworkは設計レベルで応えます。</div>
+    <div class="body" style="justify-content:space-between">
+      <div class="hl hl-coral">
+        <div class="ht">継続できなかった3つの構造的な原因</div>
+        <div class="hd">① 複雑な施策設定が必要でクイックな実行が困難だった　② 兼任体制では運用が維持できず機能が縮退した　③ ベンダーから活用事案・他社事例の提案がなく、効果を発揮できないまま終わった</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:4px 0">
+        <div class="diff-row">
+          <div class="di"><strong>原因 01：</strong>複雑な設定が必要でクイックな実行ができなかった</div>
+          <div class="da">→</div>
+          <div class="df">商品情報を入れればAIが自動でQ&Aを生成・最適化。初期設定から運用までFireworkに委託するフルアウトソース型と、貴社チームと並走する伴走型、どちらにも対応可能です。委託範囲が広いほど費用は変動しますが、ご予算に合わせて柔軟に体制を設計します。</div>
+        </div>
+        <div class="diff-row">
+          <div class="di"><strong>原因 02：</strong>兼任体制では複雑な運用が続かず、機能が縮退していった</div>
+          <div class="da">→</div>
+          <div class="df">専任担当が伴走し、貴社ECチームの負担を最小化します。さらに運用全体をFireworkにアウトソースする委託型も選択可能です。いずれもご予算に合わせて範囲を設計できるため、まずは現在のリソース感をお聞かせください。</div>
+        </div>
+        <div class="diff-row">
+          <div class="di"><strong>原因 03（最重要）：</strong>ベンダーから活用事案・他社事例の提案がなく、効果を発揮できなかった</div>
+          <div class="da">→</div>
+          <div class="df">Fireworkは月次で他社事例・インサイトデータ・改善提案をご提供する伴走型を約束します。専任の営業担当・サポート担当に加え、技術・コンテンツ・運用など様々な疑問に対応できるサポートデスクをチーム体制で設置。「次にどうするか」を常にこちらからご提案し続けます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">07</div>
+</div>
+
+<!-- 08 ロードマップ -->
+<div class="slide" id="s08">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">08</span><span class="sl-tag tag-blue">導入ロードマップ</span></div>
+    <div class="sl-title">スタートから進化までの導入戦略</div>
+    <div class="sl-sub">拡張期は「どこで出すか（接点軸）」と「何を出すか（コンテンツ軸）」の2軸で同時に拡張します。</div>
+    <div class="body">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid #e8e6e0;border-radius:8px;overflow:hidden;flex:1">
+        <div style="padding:14px 16px;border-right:1px solid #e8e6e0;display:flex;flex-direction:column;gap:7px;background:#E6F1FB08">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.05em;color:#185FA5">PHASE 1　スタート</div>
+          <div class="p-title">自社DTCへの導入</div>
+          <div class="p-desc">ランニングシューズ3〜5 SKUから始動。既存動画アセット・商品スペック情報でAIデジタル接客を設置。PWA移行に合わせてタグ実装を計画。</div>
+          <div class="p-vt" style="color:#0C447C">動画戦略</div>
+          <div class="p-vd">Instagram・マーケ保有の既存素材を活用 → 制作コストゼロで始動</div>
+          <div style="padding:8px 10px;border-radius:6px;background:#E6F1FB;margin-top:auto">
+            <div style="font-size:9px;font-weight:700;color:#0C447C;margin-bottom:2px">KPI案</div>
+            <div style="font-size:10px;color:#185FA5;line-height:1.4">コンバージョン・滞在時間 / インサイト質問ログ</div>
+          </div>
+        </div>
+        <div style="padding:14px 16px;border-right:1px solid #e8e6e0;display:flex;flex-direction:column;gap:7px;background:#E1F5EE08">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.05em;color:#085041">PHASE 2　拡張期</div>
+          <div class="p-title">接点 × コンテンツの両軸拡張</div>
+          <div class="p-desc">【接点軸】海外DTC・国内リテーラーへシンジケーション展開。【コンテンツ軸】対話ログで判明した重要動画を優先制作・補充。</div>
+          <div class="p-vt" style="color:#085041">動画戦略</div>
+          <div class="p-vd">ライブ配信からの自動切り抜き / AI対話データからの動画制作 / AI動画生成のテスト</div>
+          <div style="padding:8px 10px;border-radius:6px;background:#E1F5EE;margin-top:auto">
+            <div style="font-size:9px;font-weight:700;color:#085041;margin-bottom:2px">KPI案</div>
+            <div style="font-size:10px;color:#0F6E56;line-height:1.4">接点別コンバージョン / クロスセル率・動画効果</div>
+          </div>
+        </div>
+        <div style="padding:14px 16px;display:flex;flex-direction:column;gap:7px;background:#EEEDFE08">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.05em;color:#3C3489">PHASE 3　進化期</div>
+          <div class="p-title">パーソナライズ ＋ CDP統合</div>
+          <div class="p-desc">ダイナミックコンテンツ戦略とFirework AI接客を統合。CDPと連携し購買履歴に基づく最適体験を提供。会員 / 非会員で異なる接客を実現。</div>
+          <div class="p-vt" style="color:#3C3489">動画戦略</div>
+          <div class="p-vd">AI動画生成で全SKU量産 / グローバル多言語版を展開</div>
+          <div style="padding:8px 10px;border-radius:6px;background:#EEEDFE;margin-top:auto">
+            <div style="font-size:9px;font-weight:700;color:#3C3489;margin-bottom:2px">KPI案</div>
+            <div style="font-size:10px;color:#534AB7;line-height:1.4">顧客LTV・リピート率 / 会員化率</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">08</div>
+</div>
+
+<!-- 09 ディスカッション -->
+<div class="slide" id="s09">
+  <div class="si">
+    <div class="sl-head"><span class="sl-num">09</span><span class="sl-tag tag-teal">次のステップ</span></div>
+    <div class="sl-title">ご質問・ディスカッション</div>
+    <div class="sl-sub">本日の内容についてご意見・ご質問をざっくばらんにお聞かせください。</div>
+    <div class="body" style="justify-content:center;align-items:center">
+      <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px">
+        <div style="font-size:28px;font-weight:800;color:#1a1a1a;line-height:1.4">貴社の戦略推進に向けて、<br>一緒に考えさせてください。</div>
+        <div style="font-size:13px;color:#888;line-height:1.8;max-width:560px">導入体制・コスト・スケジュール・品質チェックの進め方など、<br>具体的な論点についてディスカッションできればと思います。</div>
+        <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;justify-content:center">
+          <span style="background:#E1F5EE;color:#085041;font-size:11px;font-weight:700;padding:6px 16px;border-radius:99px">導入体制・役割分担</span>
+          <span style="background:#EEEDFE;color:#3C3489;font-size:11px;font-weight:700;padding:6px 16px;border-radius:99px">コスト・スケジュール</span>
+          <span style="background:#FAECE7;color:#712B13;font-size:11px;font-weight:700;padding:6px 16px;border-radius:99px">品質チェックの進め方</span>
+          <span style="background:#E6F1FB;color:#0C447C;font-size:11px;font-weight:700;padding:6px 16px;border-radius:99px">動画制作の優先順位</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pn">09</div>
+</div>
+
+</div>
+</body>
+</html>
